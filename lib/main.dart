@@ -1,5 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sample_app/firebase_options.dart';
 import 'package:sample_app/viewModel/loginViewModel.dart';
 import 'package:sample_app/viewModel/otpViewModel.dart';
 import 'package:sample_app/viewModel/resetPasswordViewModel.dart';
@@ -12,7 +14,11 @@ import 'utils/Strings/strings.dart';
 import 'viewModel/loginWithMobileViewModel.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+ 
   runApp(MyApp());
 }
 

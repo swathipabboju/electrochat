@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../utils/ReusableWidgets/TextButton.dart';
@@ -12,7 +14,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ProviderForLogin = Provider.of<LoginViewModel>(context);
-    TextEditingController _mobile = TextEditingController();
+    TextEditingController _mobile = TextEditingController(text: "7995490649");
     FocusScopeNode _node = FocusScopeNode();
     return Scaffold(
       body: Center(
@@ -34,8 +36,19 @@ class LoginScreen extends StatelessWidget {
             ),
             ReusableButton(
               ButtonText: "Login",
-              onPressed: () {
-                ProviderForLogin.Login(_mobile.text, context);
+              onPressed: () async {
+                try {
+                  await ProviderForLogin.Login(_mobile.text, context);
+                  FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+                  await firebaseFirestore.collection("Chat").add({
+                    'text': "Hello",
+                    'sender': _mobile.text,
+                    'timestamp': FieldValue.serverTimestamp(),
+                  });
+                  print("Data inserted successfully");
+                } catch (e) {
+                  print("Error inserting data: $e");
+                }
               },
             ),
             Padding(

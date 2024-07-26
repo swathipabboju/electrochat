@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample_app/view/Login/scratch_card_screen.dart';
 import 'package:sample_app/view/Login/setMpin.dart';
 import 'package:sample_app/view/Login/signup.dart';
 import 'package:sample_app/view/Login/validateMpin.dart';
@@ -18,7 +19,8 @@ class AppPages {
       AppRoutes.otpScreen: (context) => Otp(),
       AppRoutes.signupScreen: (context) => SignUpPage(),
       AppRoutes.SetMpinScreen: (context) => SetMPINPage(),
-      AppRoutes.ValidateMpin:(context) => ValidateMpin(),
+      AppRoutes.ValidateMpin: (context) => ValidateMpin(),
+      AppRoutes.dismissableWidget: (context) => ScratchCardScreen()
     };
   }
 }

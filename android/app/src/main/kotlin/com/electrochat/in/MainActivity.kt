@@ -1,4 +1,4 @@
-package com.cgg.gov.sample_app
+package com.electrochat.`in`
 
 import io.flutter.embedding.android.FlutterActivity
 

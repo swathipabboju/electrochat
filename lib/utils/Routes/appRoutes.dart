@@ -1,6 +1,6 @@
 class AppRoutes {
   AppRoutes._();
-  static const initial = loginWithMobile;
+  static const initial = login;
   static const login = "/login.dart";
   static const loginWithMobile = "/loginWithMobileView.dart";
   static const mpin = "/mpin.dart";
@@ -9,4 +9,5 @@ class AppRoutes {
   static const signupScreen = "/signup.dart";
   static const SetMpinScreen = "/setMpin.dart";
   static const ValidateMpin = "/validateMpin.dart";
+  static const dismissableWidget = "/dismissableWidget";
 }
